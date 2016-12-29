@@ -1,0 +1,59 @@
+
+<html>
+<head>
+<title>validate</title>
+<script>
+
+function validateForm()
+{
+ var x=document.forms["myForm"]["name"].value;
+ if((x=="") || x=="null")
+ {
+ alert("name must be fill out");
+ return false;
+ 
+ }
+ 
+ var x=document.forms["myForm"]["Mobile"].value;
+         if(x==null || x=="" || x.length < 10 || x.length > 10 || x.search(/[^0-9\-()+]/g) != -1 )
+          {
+           alert("Enter valid Mobile number or Mobile number should not be blank");
+           return false;
+		  }
+		  
+		  
+		     var x=document.forms["myForm"]["email"].value;
+          var atpos=x.indexOf("@");
+          var dotpos=x.lastIndexOf(".");
+		  
+         if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+          {
+            alert("Please Enter a valid e-mail address");
+            return false;
+          }
+		 
+      var x=document.forms["myForm"]["p"].value;
+	   var y=document.forms["myForm"]["p1"].value;
+	   if(x!=y)
+	   {
+	   alert("paswword do not match");
+	   }
+
+
+}
+
+
+</script>
+</head>
+<body>
+ <form name="myForm" method="post"  action="#" onSubmit="return validateForm()">
+ name <input type="text" name="name"><br>
+  Mobile <input type="text" name="Mobile"><br>
+    Email <input type="text" name="email"><br>
+   Password <input type="password" name="p"><br>
+	   confirm password <input type="password" name="p1"><br>
+ <input type="submit" value="SIGNUP" name="s">
+</form>
+	
+</body>
+</html>
